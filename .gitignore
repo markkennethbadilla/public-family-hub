@@ -1,2 +1,5 @@
 .serena/
 node_modules/
+
+# the aunt dissertation — relocated documents, not tracked source
+dissertation-the aunt/
