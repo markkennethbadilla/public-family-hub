@@ -1,2 +1,5 @@
 .serena/
 node_modules/
+
+# Rosemarie dissertation — relocated documents, not tracked source
+dissertation-rosemarie/
