@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Cat &amp; Chicken Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf7f1;
+    --ink:#2b2620;
+    --muted:#7a7165;
+    --line:#e7dfd2;
+    --accent:#c0562f;
+    --accent-soft:#e8d3c8;
+    --green:#3f6b4f;
+    --green-soft:#dbe7dc;
+    --warn:#a44a2e;
+    --display:"Fraunces",Georgia,serif;
+    --body:"Inter",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:6vh 5vw 12vh}
+
+  header{text-align:center;margin-bottom:4.5vh}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2vh}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5.4vw,2.9rem);line-height:1.08;margin:0 0 1.8vh;letter-spacing:-.01em}
+  header .lead{color:var(--muted);font-size:1.05rem;max-width:52ch;margin:0 auto}
+
+  .reset-row{display:flex;justify-content:center;margin:0 0 5vh}
+  .reset{
+    font-family:var(--body);font-size:.85rem;font-weight:600;color:var(--accent);
+    background:none;border:1px solid var(--line);border-radius:99px;padding:.55rem 1.1rem;cursor:pointer;
+    transition:background .15s,border-color .15s;
+  }
+  .reset:hover{background:var(--accent-soft);border-color:var(--accent)}
+  .progress{text-align:center;font-size:.82rem;color:var(--muted);margin-top:1.6vh}
+
+  section{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:3.2vh;overflow:hidden;box-shadow:0 1px 3px rgba(43,38,32,.04)}
+  .sec-head{padding:2.2vh 5vw;border-bottom:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+  .sec-head h2{font-family:var(--display);font-weight:600;font-size:1.35rem;margin:0;letter-spacing:-.01em}
+  .sec-head .when{font-size:.8rem;font-weight:600;color:var(--accent);white-space:nowrap}
+  .sec-body{padding:0 5vw}
+
+  .task{
+    display:flex;gap:.9rem;align-items:flex-start;padding:1.8vh 0;border-bottom:1px solid var(--line);
+  }
+  .task:last-child{border-bottom:none}
+  .task input[type=checkbox]{
+    appearance:none;-webkit-appearance:none;flex:0 0 auto;width:1.45rem;height:1.45rem;margin-top:.1rem;
+    border:2px solid #c9bdac;border-radius:6px;cursor:pointer;position:relative;background:#fff;
+    transition:background .15s,border-color .15s;
+  }
+  .task input[type=checkbox]:checked{background:var(--green);border-color:var(--green)}
+  .task input[type=checkbox]:checked::after{
+    content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);
+  }
+  .task .txt{flex:1 1 auto}
+  .task .t{font-size:1rem;font-weight:500}
+  .task input:checked + .txt .t{color:var(--muted);text-decoration:line-through}
+  .task .note{font-size:.85rem;color:var(--muted);margin-top:.4vh}
+  .task .note b{color:var(--warn);font-weight:600}
+
+  .aside{
+    background:var(--green-soft);border-radius:10px;padding:1.8vh 4vw;margin:2.2vh 0;
+    font-size:.89rem;color:var(--green);
+  }
+  .aside b{font-weight:600}
+
+  footer{border-top:1px solid var(--line);margin-top:6vh;padding-top:3vh;color:var(--muted);font-size:.85rem;text-align:center}
+
+  @media (min-width:600px){
+    .sec-head{padding:2.2vh 2.2rem}
+    .sec-body{padding:0 2.2rem}
+    .aside{margin:2.2vh 0;padding:1.8vh 1.4rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Daily Routine</div>
+    <h1>Cat &amp; Chicken Care</h1>
+    <div class="lead">Tick each task as you finish it. The list resets every morning. Read the notes on each item &mdash; they stop the small mistakes (who eats what, closing the broom, not feeding at night).</div>
+  </header>
+
+  <div class="reset-row">
+    <button class="reset" id="resetBtn">Clear the list for a new day</button>
+  </div>
+  <div class="progress" id="progress"></div>
+
+  <section data-day="morning">
+    <div class="sec-head"><h2>Morning</h2><span class="when">start of day</span></div>
+    <div class="sec-body">
+      <label class="task"><input type="checkbox" data-k="m1"><span class="txt"><span class="t">Move the chicken cages from on top of the refrigerator to the bedroom.</span><span class="note">Stack them one on top of the other, in a high place, so the cats cannot reach them &mdash; and so the chicks get sunlight.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="m2"><span class="txt"><span class="t">Open the plywood gate at the doorstep.</span><span class="note">Do this before feeding the outdoor cats, so they can be reached.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="m3"><span class="txt"><span class="t">Give the chickens food.</span><span class="note">They like it fresh, so refill even if some is left.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="m4"><span class="txt"><span class="t">Boil the fish for the cats.</span><span class="note">One batch for all of them. Boil the fish first, then mix the rice in after &mdash; not together.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="m5"><span class="txt"><span class="t">Feed the indoor cats first.</span><span class="note">That is Mia (the kitten) and Mimim (the older male). Feed them before you open the door for the outdoor cats.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="m6"><span class="txt"><span class="t">Feed the outdoor cats.</span><span class="note">The aunt cat gets <b>only</b> boiled fish and rice &mdash; never cat food. The mother cat and kittens get a mix, with more cat food than fish and rice.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="m7"><span class="txt"><span class="t">Give the chicks a little boiled fish as a treat.</span><span class="note">Only after the outdoor cats are fed, and only fish &mdash; no rice.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="m8"><span class="txt"><span class="t">Cook rice and the viand for the people.</span><span class="note">This rice is for the next meal.</span></span></label>
+      <div class="aside">When you go in or out the door, <b>use the broom to keep Mimim inside</b>. He is not neutered, so he will try to slip out.</div>
+    </div>
+  </section>
+
+  <section data-day="noon">
+    <div class="sec-head"><h2>Noon</h2><span class="when">midday</span></div>
+    <div class="sec-body">
+      <label class="task"><input type="checkbox" data-k="n1"><span class="txt"><span class="t">Feed the indoor cats first, then the outdoor cats.</span><span class="note">Same portions as the morning. The aunt cat still gets only fish and rice; the mother and kittens get the mix.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="n2"><span class="txt"><span class="t">Give the chickens food.</span><span class="note">Fresh again.</span></span></label>
+      <div class="aside">The morning batch of boiled fish covers breakfast <b>and</b> lunch. You do not boil a second batch for lunch.</div>
+    </div>
+  </section>
+
+  <section data-day="afternoon">
+    <div class="sec-head"><h2>Afternoon</h2><span class="when">before it gets dark</span></div>
+    <div class="sec-body">
+      <label class="task"><input type="checkbox" data-k="a1"><span class="txt"><span class="t">Boil a fresh batch of fish for the cats&rsquo; dinner.</span><span class="note">Boil the fish first, then mix in the rice. This batch is for the evening meal only.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="a2"><span class="txt"><span class="t">Clean the chicken cages.</span><span class="note">There are two clean cages kept ready, so the chicks can move to a clean cage at night.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="a3"><span class="txt"><span class="t">Give the chickens food.</span><span class="note">Feed them in the afternoon while it is still light. They are <b>not</b> fed at night.</span></span></label>
+    </div>
+  </section>
+
+  <section data-day="night">
+    <div class="sec-head"><h2>Night</h2><span class="when">end of day</span></div>
+    <div class="sec-body">
+      <label class="task"><input type="checkbox" data-k="e1"><span class="txt"><span class="t">Feed the indoor cats first, then the outdoor cats.</span><span class="note">Same as every other meal. Keep the aunt cat&rsquo;s plate separate so the others do not steal it &mdash; she will not eat if it is mixed with cat food.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="e2"><span class="txt"><span class="t">Move the chicks into the clean cages.</span><span class="note">Then put them back on top of the refrigerator.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="e3"><span class="txt"><span class="t">Cover the chicks with a blanket so they can sleep.</span><span class="note"></span></span></label>
+      <label class="task"><input type="checkbox" data-k="e4"><span class="txt"><span class="t">Cook rice for the next day.</span><span class="note">This is the rice for the early morning.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="e5"><span class="txt"><span class="t">Cook the viand for dawn.</span><span class="note">Mark works the night shift and wakes around 2 AM, so he may want food ready.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="e6"><span class="txt"><span class="t">Close the plywood gate at the doorstep.</span><span class="note">So stray dogs do not leave droppings on the step.</span></span></label>
+      <label class="task"><input type="checkbox" data-k="e7"><span class="txt"><span class="t">Lock the doors.</span><span class="note"></span></span></label>
+      <div class="aside">Every time the door opens at night, <b>use the broom against the door</b> so Mimim does not get out.</div>
+    </div>
+  </section>
+
+  <footer>Written for the household &mdash; keep the notes handy, they are the part that prevents mistakes.</footer>
+</div>
+
+<script>
+(function () {
+  var KEY = "catChickenCare_";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type=checkbox]'));
+  var progress = document.getElementById('progress');
+
+  function todayStamp() {
+    var d = new Date();
+    return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+  }
+
+  function load() {
+    var stamp = localStorage.getItem(KEY + "stamp");
+    if (stamp !== todayStamp()) {
+      boxes.forEach(function (b) { b.checked = false; });
+      return;
+    }
+    boxes.forEach(function (b) {
+      b.checked = localStorage.getItem(KEY + b.dataset.k) === "1";
+    });
+  }
+
+  function save() {
+    localStorage.setItem(KEY + "stamp", todayStamp());
+    boxes.forEach(function (b) {
+      if (b.checked) { localStorage.setItem(KEY + b.dataset.k, "1"); }
+      else { localStorage.removeItem(KEY + b.dataset.k); }
+    });
+    render();
+  }
+
+  function render() {
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    var total = boxes.length;
+    if (!done) { progress.textContent = ""; return; }
+    progress.textContent = done + " of " + total + " tasks done today";
+  }
+
+  boxes.forEach(function (b) { b.addEventListener("change", save); });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    boxes.forEach(function (b) { b.checked = false; });
+    save();
+  });
+
+  load();
+  render();
+})();
+</script>
+</body>
+</html>

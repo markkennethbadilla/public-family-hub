@@ -4,19 +4,26 @@
 
 This repo is a running database of errands and small projects Mark does for
 family members — his aunt (tita), his mom (mama), and any relative who comes
-after them. Each person gets one folder; each errand or favor they ask for gets
-one subfolder inside it. The point is reuse: when a new errand for the same
-person (or a similar one for someone else) comes in, the right move is to open
-the closest existing errand folder and copy its structure and styling, not to
-start from a blank page. The repo is public and served through GitHub Pages, so
-finished HTML work (like slide decks) is also a live link Mark can hand a family
-member directly, with nothing to install on their end.
+after them — plus small household routines that serve the whole house rather
+than one person. Each person gets one folder; a shared household routine gets a
+`house/` folder; and each errand or favor gets one subfolder inside its parent.
+The point is reuse: when a new errand for the same person (or a similar one for
+someone else) comes in, the right move is to open the closest existing errand
+folder and copy its structure and styling, not to start from a blank page. The
+repo is public and served through GitHub Pages, so finished HTML work (like slide
+decks) is also a live link Mark can hand a family member or helper directly, with
+nothing to install on their end.
 
 ## Features
 
 - **One folder per family member, one subfolder per errand** — `aunt/`, `mom/`,
   and any future person, each holding that person's own list of favors done for
-  them.
+  them. A small routine that serves the whole house lives under `house/` instead
+  of under one person.
+- **A daily checklist page for the household** — `house/cat-chicken-care/` is a
+  self-contained `index.html` (no build step) organizing the cat and chicken
+  feeding by time of day. Its checkboxes persist in the browser's local storage
+  and reset each morning, so the helper can tick tasks off day by day.
 - **HTML slide decks for coursework**, built and viewable straight from the repo
   or from the live GitHub Pages link — currently four lesson decks for the
   aunt's EdD coursework, sharing one `slides.css` / `slides.js` so a new lesson
@@ -75,8 +82,10 @@ member directly, with nothing to install on their end.
 ## Non-goals
 
 - **This repo does not build a family errand tracking app.** No database, no
-  login, no UI beyond the plain README index and the folder tree — building one
-  would cost more than the errand volume justifies.
+  login, no backend — building one would cost more than the errand volume
+  justifies. The cat-and-chicken checklist is deliberately a single static
+  `index.html` whose checkboxes live in the visitor's own browser, not a shared
+  tracked app, so it stays inside this boundary.
 - **It does not host the Rosemarie dissertation's actual files.** Only the fact
   of the errand and where the files sit locally. The files themselves are
   gitignored on purpose (see Locked decisions).
@@ -86,11 +95,16 @@ member directly, with nothing to install on their end.
 - **It does not keep errands private.** The repo is deliberately public so
   Pages links work; anything that must stay private does not belong in this
   repo at all.
+- **It holds no private or sensitive content.** Because the repo is public and
+  served on Pages, nothing with sensitive or personal detail goes in any folder
+  — not in a routine page, not in a source-material file. A routine that could
+  leak personal detail is summarized, never copied in full.
 
 ## Invariants
 
 - Every person with an errand in this repo has exactly one top-level folder
   named after them, and every errand of theirs lives in one subfolder under it.
+  A household-wide routine lives in the single `house/` top-level folder.
 - The README.md index lists every errand folder that exists in the repo, and
   lists no folder that does not exist.
 - The repo stays public, because GitHub Pages links depend on it.

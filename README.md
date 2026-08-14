@@ -18,6 +18,12 @@ each project/errand gets a subfolder. Reuse past work as a base for new ones.
 ### Mom
 - *(nothing yet — ready for her projects)*
 
+### House
+- **`house/cat-chicken-care/`** — a daily checklist for feeding the cats and
+  chickens, organized by time of day (morning / noon / afternoon / night).
+  Self-contained `index.html` served by GitHub Pages; checkboxes persist in the
+  browser and reset each morning, so the helper can tick tasks off every day.
+
 ## Adding a new errand
 1. Create `<person>/<short-slug>/` (e.g. `mom/permit-renewal/`).
 2. Drop source material + any built output inside it.
