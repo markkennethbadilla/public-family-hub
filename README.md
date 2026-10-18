@@ -14,6 +14,9 @@ each project/errand gets a subfolder. Reuse past work as a base for new ones.
   - `lesson4-educational-leadership` — Educational Leadership & Ethics
 - **`aunt/source-material/`** — raw inputs the slides were built from
   (Word docs, Excel sheet, images + metadata).
+- **`aunt/edd-emd-design-hearing/`** -- her Design Hearing docx (saved from
+  Messenger 2026-10-18); errand: print the 8-page questionnaire x50 back to back
+  + 1 transmittal letter. See `ERRAND.md`.
 
 ### Mom
 - *(nothing yet — ready for her projects)*
