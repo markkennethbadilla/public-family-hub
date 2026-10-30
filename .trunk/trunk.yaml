@@ -1,0 +1,19 @@
+# Trunk: https://docs.trunk.io/cli
+version: 0.1
+cli:
+  version: 1.25.0
+plugins:
+  sources:
+    - id: trunk
+      ref: v1.11.0
+      uri: https://github.com/trunk-io/plugins
+actions:
+  definitions:
+    # Opengrep security scan (house skill gate-commits-with-trunk, mkb-winops spec 060
+    # installs the binary and the pinned js/ts security rules). Only files changed
+    # since origin/main, only new findings; blocks on ERROR and WARNING. Override one
+    # finding with `// nosemgrep: <rule-id>` (the short id it prints) on or above the line.
+    - id: block-push-on-opengrep
+      triggers: [{git_hooks: [pre-push]}]
+      run: '"C:/Program Files/opengrep/opengrep.exe" scan --experimental --disable-version-check --quiet --error --severity ERROR --severity WARNING --baseline-commit origin/main --config C:/ProgramData/opengrep/semgrep-rules .'
+  enabled: [block-push-on-opengrep]
