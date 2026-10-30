@@ -110,3 +110,12 @@ nothing to install on their end.
 - The repo stays public, because GitHub Pages links depend on it.
 - `dissertation-rosemarie/` stays gitignored and is never committed.
 - No family errand is scattered into a repo outside `family-hub`.
+
+## Security scan
+
+The Trunk pre-push gate runs Opengrep with the pinned JavaScript and
+TypeScript security rules (mkb-winops spec 060). It scans only files changed
+since origin/main and blocks a push on a new ERROR or WARNING finding. Fix the
+finding, or when it is a false positive put `// nosemgrep: <rule-id>` on the
+line above it, using the short rule id the scan prints. There is no global
+skip.
