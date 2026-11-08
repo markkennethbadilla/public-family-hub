@@ -3,3 +3,16 @@ node_modules/
 
 # Rosemarie dissertation — relocated documents, not tracked source
 dissertation-rosemarie/
+
+# secrets and keys (2026-11-08)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*_deploy_key
+.temp_deploy_key
+*.pfx
+*.p12
