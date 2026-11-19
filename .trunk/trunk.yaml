@@ -21,4 +21,8 @@ actions:
         - name: PATHEXT
           value: ${env.PATHEXT}
       run: 'opengrep scan --experimental --disable-version-check --quiet --error --severity ERROR --severity WARNING --baseline-commit origin/main --config C:/ProgramData/opengrep/semgrep-rules .'
-  enabled: [block-push-on-opengrep]
+    # Maintainability gate (register B13): copy-paste check; repo has no package.json.
+    - id: maintainability-on-push
+      run: npx -y jscpd@5.4.3 . --silent
+      triggers: [{git_hooks: [pre-push]}]
+  enabled: [block-push-on-opengrep, maintainability-on-push]
