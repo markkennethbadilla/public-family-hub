@@ -1,0 +1,74 @@
+# Coverage
+
+Against the coverage register, skill `cover-the-whole-lifecycle` (rule 114). Static files only: no dependencies, server, database, API, AI, forms, analytics or deploy beyond GitHub Pages.
+
+- [x] B01 n/a: no features; errands are folders, not code
+- [x] B02 `SPEC.md` (purpose, features, decisions, non-goals, invariants)
+- [x] B03 `gh repo view markkennethbadilla/public-family-hub --json visibility` returns PUBLIC on purpose: GitHub Pages; personal data lives in private-family-hub
+- [x] B04 n/a: no code built
+- [x] B05 n/a: static files; row does not apply
+- [x] B06 no secrets in repo; gitleaks runs in the pre-commit hook; `.gitignore` blocks key files
+- [x] B07 n/a: static files; row does not apply
+- [x] B08 n/a: one static checklist page with no build, no app
+- [x] B09 this file
+- [x] B10 n/a: one static checklist page with no build, no app
+- [x] B11 n/a: static files; row does not apply
+- [x] B12 n/a: static files; row does not apply
+- [x] B13 `.trunk/trunk.yaml` action `maintainability-on-push` (jscpd)
+- [x] B14 n/a: static files; row does not apply
+- [x] B15 `specs/alignment.md`
+- [x] T01 gitleaks pre-commit hook
+- [x] T02 n/a: static files; row does not apply
+- [x] T03 `.trunk/trunk.yaml` action `block-push-on-opengrep`
+- [x] T04 n/a: static files; row does not apply
+- [x] T05 n/a: static files; row does not apply
+- [x] T06 n/a: one static checklist page with no build, no app
+- [x] T07 n/a: one static checklist page with no build, no app
+- [x] T08 n/a: static files; row does not apply
+- [x] T09 n/a: no test suite; static files
+- [x] T10 n/a: one static checklist page with no build, no app
+- [x] T11 n/a: static files; row does not apply
+- [x] T12 n/a: static files; row does not apply
+- [x] T13 n/a: static files; row does not apply
+- [x] T14 n/a: one static checklist page with no build, no app
+- [x] T15 n/a: one static checklist page with no build, no app
+- [x] T16 n/a: one static checklist page with no build, no app
+- [x] T17 n/a: static files; row does not apply
+- [x] T18 n/a: static files; row does not apply
+- [x] T19 n/a: static files; row does not apply
+- [x] T20 n/a: static files; row does not apply
+- [x] T21 n/a: static files; row does not apply
+- [x] I01 n/a: static files; row does not apply
+- [x] I02 n/a: static files; row does not apply
+- [x] I03 n/a: one static checklist page with no build, no app
+- [x] I04 n/a: static files; row does not apply
+- [x] I05 n/a: static files; row does not apply
+- [x] I06 n/a: static files; row does not apply
+- [x] D01 n/a: static files; row does not apply
+- [x] D02 n/a: static files; row does not apply
+- [x] D03 n/a: static files; row does not apply
+- [x] D04 n/a: one static checklist page with no build, no app
+- [x] D05 n/a: static files; row does not apply
+- [x] D06 n/a: static files; row does not apply
+- [x] D07 n/a: static files; row does not apply
+- [x] R01 n/a: one static checklist page with no build, no app
+- [x] R02 n/a: static files; row does not apply
+- [x] R03 n/a: static files; row does not apply
+- [x] R04 n/a: static files; row does not apply
+- [x] R05 n/a: static files; row does not apply
+- [x] R06 n/a: static files; row does not apply
+- [x] R07 n/a: static files; row does not apply
+- [x] R08 n/a: static files; row does not apply
+- [x] R09 n/a: static files; row does not apply
+- [x] R10 n/a: static files; row does not apply
+- [x] R11 n/a: static files; row does not apply
+- [x] R12 n/a: static files; row does not apply
+- [x] R13 n/a: static files; row does not apply
+- [x] R14 n/a: static files; row does not apply
+- [x] R16 n/a: static files; row does not apply
+- [x] X01 n/a: static files; row does not apply
+- [x] X02 n/a: no code to guard; a leak of personal data is guarded by the SPEC invariant
+- [x] V01 n/a: static files; row does not apply
+- [x] V02 n/a: static files; row does not apply
+- [x] V03 rule 94 backups in `A:ackups\<topic>\` (2026-11-19 move: `A:ackups\public-family-hub\`)
+- [x] V04 n/a: static files; row does not apply
