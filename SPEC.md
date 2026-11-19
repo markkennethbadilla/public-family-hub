@@ -92,3 +92,7 @@ since origin/main and blocks a push on a new ERROR or WARNING finding. Fix the
 finding, or when it is a false positive put `// nosemgrep: <rule-id>` on the
 line above it, using the short rule id the scan prints. There is no global
 skip.
+
+## Pages rebuild
+
+Actions is off on this repo (rule 76), so a push does not rebuild Pages. To publish: `gh api -X PUT repos/markkennethbadilla/public-family-hub/actions/permissions -F enabled=true`, `gh api -X POST repos/markkennethbadilla/public-family-hub/pages/builds`, wait for the run to complete, then set `enabled=false` again. No workflow files live in the repo.
