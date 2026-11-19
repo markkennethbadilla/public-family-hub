@@ -1,8 +1,6 @@
 .serena/
 node_modules/
 
-# the aunt dissertation — relocated documents, not tracked source
-dissertation-the aunt/
 
 # secrets and keys (2026-11-08)
 .env
