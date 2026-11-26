@@ -96,3 +96,10 @@ skip.
 ## Pages rebuild
 
 Actions is off on this repo (rule 76), so a push does not rebuild Pages. To publish: `gh api -X PUT repos/markkennethbadilla/public-family-hub/actions/permissions -F enabled=true`, `gh api -X POST repos/markkennethbadilla/public-family-hub/pages/builds`, wait for the run to complete, then set `enabled=false` again. No workflow files live in the repo.
+
+## Run and recover
+
+- **Host:** GitHub Pages, legacy build from `main`, `https://markkennethbadilla.github.io/public-family-hub/` (`gh api repos/markkennethbadilla/public-family-hub/pages`: status `built`, read 2026-11-26).
+- **Health address:** `https://markkennethbadilla.github.io/public-family-hub/` answers 200 (static files, no server of ours).
+- **Outside monitor:** Uptime Kuma at `https://uptime.elunari.uk` (personal-infra spec 003), monitor `public-family-hub (GitHub Pages)`, HTTP 200 every 300 s, no phone page (a family deck host is not urgent); a down state shows on the Uptime Kuma dashboard.
+- **Rollback:** `git revert <bad commit>`, push, then the "Pages rebuild" steps above; `gh api repos/markkennethbadilla/public-family-hub/pages/builds/latest --jq .commit` must name the reverted commit. Dry run 2026-11-26: the latest build read back `61d1676` with no change made; the two later commits touch only the push gate and this spec, so the served files are current.
