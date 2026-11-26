@@ -93,6 +93,10 @@ finding, or when it is a false positive put `// nosemgrep: <rule-id>` on the
 line above it, using the short rule id the scan prints. There is no global
 skip.
 
+## Traced requirements
+
+Every invariant and promise above is an item in `specs/requirements.md`, traced on pre-push by Trunk action `trace-on-push`, which then runs `scripts/repo-checks.sh` (repo PUBLIC, Actions off, no workflow files or `package.json`, the README index matches the folder tree both ways).
+
 ## Pages rebuild
 
 Actions is off on this repo (rule 76), so a push does not rebuild Pages. To publish: `gh api -X PUT repos/markkennethbadilla/public-family-hub/actions/permissions -F enabled=true`, `gh api -X POST repos/markkennethbadilla/public-family-hub/pages/builds`, wait for the run to complete, then set `enabled=false` again. No workflow files live in the repo.
