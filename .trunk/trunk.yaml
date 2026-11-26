@@ -7,8 +7,17 @@ plugins:
     - id: trunk
       ref: v1.11.0
       uri: https://github.com/trunk-io/plugins
+lint:
+  enabled:
+    # register B20: a colour or font outside tokens.css blocks the push
+    - stylelint@18.1.0:
+        packages:
+          - stylelint-declaration-strict-value@1.13.0
 actions:
   definitions:
+    - id: block-push-on-findings
+      triggers: [{git_hooks: [pre-push]}]
+      run: trunk check --ci --no-fix --upstream origin/main
     # Opengrep security scan (house skill gate-commits-with-trunk, mkb-winops spec 060
     # installs the binary and the pinned js/ts security rules). Only files changed
     # since origin/main, only new findings; blocks on ERROR and WARNING. Override one
@@ -20,9 +29,10 @@ actions:
           value: ${env.MISE_GLOBAL_CONFIG_FILE}
         - name: PATHEXT
           value: ${env.PATHEXT}
-      run: sh -c 't=$(command -v timeout) && t="$t 60"; o="scan --experimental --disable-version-check --error --severity ERROR --severity WARNING --baseline-commit origin/main --config C:/ProgramData/opengrep/semgrep-rules ."; for n in 1 2; do $t opengrep $o; rc=$?; case $rc in 0|1) exit $rc;; 2|124) ;; *) echo "opengrep setup error (exit $rc): push blocked" >&2; exit $rc;; esac; echo "opengrep crashed (exit $rc, not a finding), try $n of 2" >&2; done; echo "opengrep crashed twice (exit $rc): push not blocked, run it by hand" >&2'
+      run: >-
+        sh -c 't=$(command -v timeout) && t="$t 60"; o="scan --experimental --disable-version-check --error --severity ERROR --severity WARNING --baseline-commit origin/main --config C:/ProgramData/opengrep/semgrep-rules ."; for n in 1 2; do $t opengrep $o; rc=$?; case $rc in 0|1) exit $rc;; 2|124) ;; *) echo "opengrep setup error (exit $rc): push blocked" >&2; exit $rc;; esac; echo "opengrep crashed (exit $rc, not a finding), try $n of 2" >&2; done; echo "opengrep crashed twice (exit $rc): push not blocked, run it by hand" >&2'
     # Maintainability gate (register B13): copy-paste check; repo has no package.json.
     - id: maintainability-on-push
       run: npx -y jscpd@5.4.3 . --silent
       triggers: [{git_hooks: [pre-push]}]
-  enabled: [block-push-on-opengrep, maintainability-on-push]
+  enabled: [block-push-on-findings, block-push-on-opengrep, maintainability-on-push]

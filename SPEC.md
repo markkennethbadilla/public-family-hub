@@ -20,8 +20,18 @@ nothing to install on their end.
   and any future person, each holding that person's own list of favors done for
   them. A small routine that serves the whole house lives under `house/` instead
   of under one person.
-- **A daily checklist page for the household** — `house/cat-chicken-care/` is a
-  self-contained `index.html` (no build step) organizing the cat and chicken
+- **A home page at the Pages root**: `index.html` at
+  https://markkennethbadilla.github.io/public-family-hub/ lists every published
+  guide as one card, so `/` is never a 404 (register B22). Add a card when a
+  page is added under a person's folder.
+  - Template: index.html <- Every Layout, the Center and Stack primitives https://every-layout.dev/layouts/center/
+  - Reference: index.html <- One Page Love, The Queue (serif headings, beige paper, narrow column) https://onepagelove.com/the-queue
+- **One token file**: `tokens.css` holds every colour and font as a custom
+  property; every page links it and its own stylesheet uses only `var()`.
+  Stylelint (`.stylelintrc.json`, plugin stylelint-declaration-strict-value)
+  refuses a raw colour or font in the Trunk gate (register B20).
+- **A daily checklist page for the household**: `house/cat-chicken-care/` is an
+  `index.html` plus `page.css` (no build step) organizing the cat and chicken
   feeding by time of day. Its checkboxes persist in the browser's local storage
   and reset each morning, so the helper can tick tasks off day by day.
 - **Personal errands live in the private twin.** The aunt's EdD decks (they

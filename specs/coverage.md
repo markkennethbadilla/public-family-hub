@@ -17,6 +17,16 @@ Against the coverage register, skill `cover-the-whole-lifecycle` (rule 114). Sta
 - [x] B13 `.trunk/trunk.yaml` action `maintainability-on-push` (jscpd)
 - [x] B14 n/a: static files; row does not apply
 - [x] B15 `specs/alignment.md`
+- [x] B16 n/a: no package.json, so no UI framework; two static pages joined by one link
+- [x] B17 each page change ends with Action and Result screenshots: `test-runs/2026-11-26-home-page/receipt.html` (the root page and its link to the checklist)
+- [x] B18 n/a for XState: the root page has one path (a link); the checklist page's only state is a checkbox kept in local storage, reset each morning, with no branching flow
+- [x] B19 n/a: static guides with no software feature to measure; judged by reading (rule 110)
+- [x] B20 `tokens.css` is the one token file; `.stylelintrc.json` (stylelint-declaration-strict-value on colour, font-family, fill, stroke), `stylelint@18.1.0` with the plugin as a Trunk package, run by `block-push-on-findings`; a planted `#fff` was refused
+- [x] B21 n/a: no tests and no code beyond the checklist's local-storage script
+- [x] B22 `index.html`: https://markkennethbadilla.github.io/public-family-hub/ lists every guide
+- [x] T23 n/a: no search or retrieval
+- [x] R17 n/a: sends no automated messages
+- [x] R18 n/a: sends no automated email
 - [x] T01 gitleaks pre-commit hook
 - [x] T02 n/a: static files; row does not apply
 - [x] T03 `.trunk/trunk.yaml` action `block-push-on-opengrep`
@@ -70,5 +80,5 @@ Against the coverage register, skill `cover-the-whole-lifecycle` (rule 114). Sta
 - [x] X02 n/a: no code to guard; a leak of personal data is guarded by the SPEC invariant
 - [x] V01 n/a: static files; row does not apply
 - [x] V02 n/a: static files; row does not apply
-- [x] V03 rule 94 backups in `A:ackups\<topic>\` (2026-11-19 move: `A:ackups\public-family-hub\`)
+- [x] V03 rule 94 backups in `A:backups\<topic>\` (2026-11-19 move: `A:backups\public-family-hub\`)
 - [x] V04 n/a: static files; row does not apply

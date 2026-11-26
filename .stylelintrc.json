@@ -1,0 +1,9 @@
+{
+  "plugins": ["stylelint-declaration-strict-value"],
+  "rules": {
+    "scale-unlimited/declaration-strict-value": [
+      ["/color$/", "font-family", "fill", "stroke"],
+      { "ignoreValues": ["currentColor", "currentcolor", "transparent", "inherit", "initial", "unset", "none"] }
+    ]
+  }
+}
