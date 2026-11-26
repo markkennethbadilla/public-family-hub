@@ -39,4 +39,8 @@ actions:
     - id: trace-on-push
       triggers: [{git_hooks: [pre-push]}]
       run: node A:/personal-markkennethbadilla/mkb-agentops/scripts/trace.mjs specs/requirements.md && bash scripts/repo-checks.sh
-  enabled: [block-push-on-findings, block-push-on-opengrep, maintainability-on-push, trace-on-push]
+    # Secrets (spec 021): the local core.hooksPath hides the global gitleaks pre-commit.
+    - id: block-commit-on-secrets
+      run: gitleaks git --pre-commit --staged --redact --no-banner
+      triggers: [{git_hooks: [pre-commit]}]
+  enabled: [block-push-on-findings, block-push-on-opengrep, maintainability-on-push, trace-on-push, block-commit-on-secrets]
