@@ -111,6 +111,10 @@ Family members open these pages from links Mark sent them, so a link must keep w
 - A removed page keeps a stub that says where the errand went (for example "moved to a private copy; ask Mark") instead of a 404.
 - The README index changes in the same commit, and any link Mark sent in a chat is replaced there when he next writes to that person.
 
+## Traced requirements
+
+Every invariant and promise above is an item in `specs/requirements.md`, traced on pre-push by Trunk action `trace-on-push`, which then runs `scripts/repo-checks.sh` (repo PUBLIC, Actions off, no workflow files or `package.json`, the README index matches the folder tree both ways).
+
 ## Pages rebuild
 
 Actions is off on this repo (rule 76), so a push does not rebuild Pages. To publish: `gh api -X PUT repos/markkennethbadilla/public-family-hub/actions/permissions -F enabled=true`, `gh api -X POST repos/markkennethbadilla/public-family-hub/pages/builds`, wait for the run to complete, then set `enabled=false` again. No workflow files live in the repo.

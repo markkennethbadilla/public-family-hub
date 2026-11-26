@@ -29,6 +29,7 @@ Against the coverage register, skill `cover-the-whole-lifecycle` (rule 114). Sta
 - [x] R17 n/a: sends no automated messages
 - [x] R18 n/a: sends no automated email
 - [x] R19 `SPEC.md` "Moving or removing a page": a moved or removed page leaves an HTML stub at the old path pointing to its new home, the README index changes in the same commit
+- [x] T24 `specs/requirements.md` (OpenFastTrace), traced by Trunk action `trace-on-push` with `scripts/repo-checks.sh` (PUBLIC, Actions off, no workflows or package.json, README index matches the tree)
 - [x] T01 gitleaks pre-commit hook
 - [x] T02 n/a: static files; row does not apply
 - [x] T03 `.trunk/trunk.yaml` action `block-push-on-opengrep`
@@ -82,5 +83,5 @@ Against the coverage register, skill `cover-the-whole-lifecycle` (rule 114). Sta
 - [x] X02 n/a: no code to guard; a leak of personal data is guarded by the SPEC invariant
 - [x] V01 n/a: static files; row does not apply
 - [x] V02 n/a: static files; row does not apply
-- [x] V03 rule 94 backups in `A:backups\<topic>\` (2026-11-19 move: `A:backups\public-family-hub\`)
+- [x] V03 rule 94 backups in `A:\backups\<topic>\` (2026-11-19 move: `A:\backups\public-family-hub\`)
 - [x] V04 n/a: static files; row does not apply
