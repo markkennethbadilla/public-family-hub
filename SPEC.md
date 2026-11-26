@@ -103,6 +103,14 @@ finding, or when it is a false positive put `// nosemgrep: <rule-id>` on the
 line above it, using the short rule id the scan prints. There is no global
 skip.
 
+## Moving or removing a page
+
+Family members open these pages from links Mark sent them, so a link must keep working.
+
+- A moved page leaves a small HTML stub at the old path with `<meta http-equiv="refresh">` and a plain link to the new address (GitHub Pages serves no redirects for a plain-HTML site).
+- A removed page keeps a stub that says where the errand went (for example "moved to a private copy; ask Mark") instead of a 404.
+- The README index changes in the same commit, and any link Mark sent in a chat is replaced there when he next writes to that person.
+
 ## Pages rebuild
 
 Actions is off on this repo (rule 76), so a push does not rebuild Pages. To publish: `gh api -X PUT repos/markkennethbadilla/public-family-hub/actions/permissions -F enabled=true`, `gh api -X POST repos/markkennethbadilla/public-family-hub/pages/builds`, wait for the run to complete, then set `enabled=false` again. No workflow files live in the repo.

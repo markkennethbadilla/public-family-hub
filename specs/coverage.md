@@ -24,9 +24,11 @@ Against the coverage register, skill `cover-the-whole-lifecycle` (rule 114). Sta
 - [x] B20 `tokens.css` is the one token file; `.stylelintrc.json` (stylelint-declaration-strict-value on colour, font-family, fill, stroke), `stylelint@18.1.0` with the plugin as a Trunk package, run by `block-push-on-findings`; a planted `#fff` was refused
 - [x] B21 n/a: no tests and no code beyond the checklist's local-storage script
 - [x] B22 `index.html`: https://markkennethbadilla.github.io/public-family-hub/ lists every guide
+- [x] B23 `SPEC.md` "Locked decisions": two repos split by data, one folder per person and errand, public for Pages, the README kept by hand, each with the option rejected
 - [x] T23 n/a: no search or retrieval
 - [x] R17 n/a: sends no automated messages
 - [x] R18 n/a: sends no automated email
+- [x] R19 `SPEC.md` "Moving or removing a page": a moved or removed page leaves an HTML stub at the old path pointing to its new home, the README index changes in the same commit
 - [x] T01 gitleaks pre-commit hook
 - [x] T02 n/a: static files; row does not apply
 - [x] T03 `.trunk/trunk.yaml` action `block-push-on-opengrep`
