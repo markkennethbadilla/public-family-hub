@@ -34,6 +34,8 @@ nothing to install on their end.
   `index.html` plus `page.css` (no build step) organizing the cat and chicken
   feeding by time of day. Its checkboxes persist in the browser's local storage
   and reset each morning, so the helper can tick tasks off day by day.
+  - Template: house/cat-chicken-care/index.html <- Every Layout, the Center and Stack primitives https://every-layout.dev/layouts/center/
+  - Reference: house/cat-chicken-care/index.html <- One Page Love, The Queue (serif headings, beige paper, narrow column) https://onepagelove.com/the-queue
 - **Personal errands live in the private twin.** The aunt's EdD decks (they
   named her and her university), their source material and the Design Hearing
   errand moved to `markkennethbadilla/private-family-hub` on 2026-11-19, and
