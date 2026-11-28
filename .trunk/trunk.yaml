@@ -33,6 +33,20 @@ actions:
         sh -c 't=$(command -v timeout) && t="$t 60"; o="scan --experimental --disable-version-check --error --severity ERROR --severity WARNING --baseline-commit origin/main --config C:/ProgramData/opengrep/semgrep-rules ."; for n in 1 2; do $t opengrep $o; rc=$?; case $rc in 0|1) exit $rc;; 2|124) ;; *) echo "opengrep setup error (exit $rc): push blocked" >&2; exit $rc;; esac; echo "opengrep crashed (exit $rc, not a finding), try $n of 2" >&2; done; echo "opengrep crashed twice (exit $rc): push not blocked, run it by hand" >&2'
     # Maintainability gate (register B13): copy-paste check; repo has no package.json.
     - id: maintainability-on-push
+      # Trunk hands actions a trimmed env; the safe-chain npx shim needs mise's global config.
+      environment:
+        - name: MISE_GLOBAL_CONFIG_FILE
+          value: ${env.MISE_GLOBAL_CONFIG_FILE}
+        - name: PATH
+          value: ${env.PATH}
+        - name: LOCALAPPDATA
+          value: ${env.LOCALAPPDATA}
+        - name: PATHEXT
+          value: ${env.PATHEXT}
+        - name: USERPROFILE
+          value: ${env.USERPROFILE}
+        - name: APPDATA
+          value: ${env.APPDATA}
       run: npx -y jscpd@5.4.3 . --silent
       triggers: [{git_hooks: [pre-push]}]
     # Coverage register T24: every SPEC promise is a traced OpenFastTrace item (mkb-agentops spec 145).
